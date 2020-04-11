@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using XMLHttpRequestExample.Data;
 
 namespace XMLHttpRequestExample
 {
@@ -31,6 +32,8 @@ namespace XMLHttpRequestExample
                 c.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
                 c.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
             });
+
+            services.AddScoped<IItemRepository, ItemRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

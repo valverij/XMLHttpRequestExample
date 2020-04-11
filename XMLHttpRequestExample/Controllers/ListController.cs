@@ -1,27 +1,24 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using XMLHttpRequestExample.Data;
 
 namespace XMLHttpRequestExample.Controllers
 {
-    public class ListController: Controller
+    public class ListController : Controller
     {
-        private readonly ILogger<ListController> _logger;
+        private readonly IItemRepository _itemRepository;
 
-        private static readonly List<string> _items = new List<string>() 
+        public ListController(IItemRepository itemRepository)
         {
-            "Computer", "Car", "Baseball", "Carrot"
-        };
-
-        public ListController(ILogger<ListController> logger)
-        {
-            _logger = logger;
+            _itemRepository = itemRepository;
         }
 
         [HttpGet]
         public IActionResult Items()
         {
-            return Json(new { Data = _items });
+            var items = _itemRepository.GetAll();
+            return Json(new { Data = items });
         }
 
         [HttpPost("/List/Items")]
@@ -32,7 +29,7 @@ namespace XMLHttpRequestExample.Controllers
                 return UnprocessableEntity();
             }
 
-            _items.Add(item);
+            _itemRepository.Insert(item);
 
             return Ok();
         }

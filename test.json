@@ -1,0 +1,25 @@
+{
+    "Name": "Rigby",
+    "Age": 5,
+    "HasFur": true,
+    "Senses": [
+        "Sight", "Hearing", "Taste"
+    ],
+    "FullSenses": [
+        {
+            "Name": "Sight",
+            "Quality": 60,
+            "BodyPart": "Eyes"
+        },
+        {
+            "Name": "Hearing",
+            "Quality": 100,
+            "BodyPart": "Ears"
+        }, 
+        {
+            "Name": "Taste",
+            "Quality": 30,
+            "BodyPart": "Mouth"
+        }
+    ]
+}
