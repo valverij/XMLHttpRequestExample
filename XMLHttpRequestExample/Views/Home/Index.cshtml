@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="h-center">
+        <h1>Test XHTMLRequest</h1>
+        <div class="row">
+            <h3>Get Items</h3>        
+            <div class="row input-group">
+                <label for="newItem">New Item</label>
+                <input type="text" id="newItem" name="newItem" autocomplete="off" />
+            </div>
+            <button id="getListButton" class="btn" type="button">Load List</button>
+            <button id="addItemButton" class="btn" type="button">Add Item</button>
+        </div>
+        <div class="row">
+            <h3>Items</h3>
+            <ul id="itemList"></ul>
+        </div>
+    </div>
+</div>
